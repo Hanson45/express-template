@@ -1,8 +1,15 @@
+version: '3.8'
+
 services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    container_name: template-express
+  express-js:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     environment:
-      - PORT=3000
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
