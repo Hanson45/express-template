@@ -28,7 +28,6 @@ export const addUser = async (req, res) => {
       const newUser = req.body; 
       db.users.push(newUser);
       
-      
       res.status(201).json({ newUser });
       
     } catch (error) {
